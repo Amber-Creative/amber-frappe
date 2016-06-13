@@ -3,7 +3,10 @@
 		"public/css/font-awesome.css",
 		"public/css/octicons/octicons.css",
 		"public/css/website.css",
-		"public/css/avatar.css"
+		"public/css/avatar.css",
+		"public/css/custom.min.css",
+		"public/css/maps/jquery-jvectormap-2.0.3.css",
+		"public/css/vendors/iCheck/skins/flat/green.css"
 	],
 	"js/frappe-web.min.js": [
 		"public/js/lib/bootstrap.min.js",
