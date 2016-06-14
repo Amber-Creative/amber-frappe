@@ -28,7 +28,10 @@ app_include_css = [
 	"assets/css/list.min.css",
 	"assets/css/form.min.css",
 	"assets/css/report.min.css",
-	"assets/css/module.min.css"
+	"assets/css/module.min.css",
+	"public/css/custom.min.css",
+	"public/css/maps/jquery-jvectormap-2.0.3.css",
+	"public/css/vendors/iCheck/skins/flat/green.css"
 ]
 
 web_include_js = [
