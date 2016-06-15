@@ -5,88 +5,52 @@
       <div class="nav toggle">
         <a id="menu_toggle"><i class="fa fa-bars"></i></a>
       </div>
-
+      <form class="navbar-form navbar-right" role="search" onsubmit="return false;">
+	      <div class="form-group form-group-sm ui-front">
+	        <input id="navbar-search" type="text" class="form-control"
+				placeholder="{%= __("Search or type a command") %} {%= __("(Ctrl + G)") %}" aria-haspopup="true">
+			<span class="octicon octicon-search navbar-search-icon"></span>
+	      </div>
+	   </form>
       <ul class="nav navbar-nav navbar-right">
         <li class="">
           <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-            <img src="/assets/frappe/images/img.jpg" alt="">John Doe
+            {{ avatar }}{%= frappe.user.full_name() %}
             <span class=" fa fa-angle-down"></span>
           </a>
-          <ul class="dropdown-menu dropdown-usermenu pull-right">
-            <li><a href="javascript:;"> Profile</a></li>
-            <li>
-              <a href="javascript:;">
-                <span class="badge bg-red pull-right">50%</span>
-                <span>Settings</span>
-              </a>
-            </li>
-            <li><a href="javascript:;">Help</a></li>
-            <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+          <ul class="dropdown-menu" id="toolbar-user" role="menu">
+	            <li class="navbar-set-desktop-icons"><a href="#modules_setup">
+	                {%= __("Set Desktop Icons") %}</a></li>
+	            <li><a href="#Form/User/{%= encodeURIComponent(user) %}">
+	                {%= __("My Settings") %}</a></li>
+				<li><a href="#" onclick="return frappe.ui.toolbar.clear_cache();">
+	                {%= __("Reload") %}</a></li>
+				<li><a href="/index" target="_blank">
+	                {%= __("View Website") %}</a></li>
+	            <li class="divider"></li>
+				<li><a href="#" onclick="return frappe.ui.toolbar.show_about();">
+					{%= __("About") %}</a></li>
+				<li><a href="https://frappe.io" target="_blank" data-link="docs">
+					{%= __("Documentation") %}</a></li>
+				<li><a href="https://discuss.erpnext.com" target="_blank">
+					{%= __("Forums") %}</a></li>
+				<li><a href="https://github.com/frappe/frappe/issues" target="_blank" data-link="issues">
+					{%= __("Report an Issue") %}</a></li>
+	            <li class="divider"></li>
+				<li><a href="#" onclick="return frappe.app.logout();">
+	                {%= __("Logout") %}</a></li>
           </ul>
         </li>
 
         <li role="presentation" class="dropdown">
-          <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
+	    			
+          <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false" onclick="return false;">
             <i class="fa fa-envelope-o"></i>
-            <span class="badge bg-green">6</span>
+				<a class="toggle-navbar-new-comments" title="{%= __("Unread Messages") %}">
+            <span class="badge bg-green navbar-new-comments">0</span></a>
           </a>
-          <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
-            <li>
-              <a>
-                <span class="image"><img src="/assets/frappe/images/img.jpg" alt="Profile Image" /></span>
-                <span>
-                  <span>John Smith</span>
-                  <span class="time">3 mins ago</span>
-                </span>
-                <span class="message">
-                  Film festivals used to be do-or-die moments for movie makers. They were where...
-                </span>
-              </a>
-            </li>
-            <li>
-              <a>
-                <span class="image"><img src="/assets/frappe/images/img.jpg" alt="Profile Image" /></span>
-                <span>
-                  <span>John Smith</span>
-                  <span class="time">3 mins ago</span>
-                </span>
-                <span class="message">
-                  Film festivals used to be do-or-die moments for movie makers. They were where...
-                </span>
-              </a>
-            </li>
-            <li>
-              <a>
-                <span class="image"><img src="/assets/frappe/images/img.jpg" alt="Profile Image" /></span>
-                <span>
-                  <span>John Smith</span>
-                  <span class="time">3 mins ago</span>
-                </span>
-                <span class="message">
-                  Film festivals used to be do-or-die moments for movie makers. They were where...
-                </span>
-              </a>
-            </li>
-            <li>
-              <a>
-                <span class="image"><img src="/assets/frappe/images/img.jpg" alt="Profile Image" /></span>
-                <span>
-                  <span>John Smith</span>
-                  <span class="time">3 mins ago</span>
-                </span>
-                <span class="message">
-                  Film festivals used to be do-or-die moments for movie makers. They were where...
-                </span>
-              </a>
-            </li>
-            <li>
-              <div class="text-center">
-                <a>
-                  <strong>See All Alerts</strong>
-                  <i class="fa fa-angle-right"></i>
-                </a>
-              </div>
-            </li>
+          <ul id="menu1 navbar-notification" class="dropdown-menu list-unstyled msg_list" role="menu">
+           
           </ul>
         </li>
       </ul>
