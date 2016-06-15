@@ -246,10 +246,6 @@ frappe.Application = Class.extend({
 
 	setup_keyboard_shortcuts: function() {
 		$(document)
-			.keydown("meta+g ctrl+g", function(e) {
-				$("#navbar-search").focus()
-				return false;
-			})
 			.keydown("meta+s ctrl+s", function(e) {
 				e.preventDefault();
 				if(cur_dialog) {
